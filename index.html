@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Doe Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: lavender;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #e6e6fa;
+      padding: 10px 20px;
+    }
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4b0082;
+    }
+    .contact {
+      font-size: 14px;
+      color: #333;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #4b0082;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+      font-style: italic;
+      color: #6a5acd;
+    }
+    section {
+      padding: 40px 20px;
+    }
+    .profile-pic {
+      width: 150px;
+      border-radius: 50%;
+    }
+    .skills, .projects, .recommendations {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .skill, .project, .recommendation {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      width: calc(33% - 20px);
+    }
+    .skill img {
+      width: 40px;
+      vertical-align: middle;
+    }
+    #add-recommendation {
+      margin-top: 20px;
+    }
+    #home-icon {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-size: 30px;
+      color: #4b0082;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="name">John Doe</div>
+      <div class="contact">Email: john@example.com | Phone: 123-456-7890</div>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#recommendations">Recommendations</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <img class="profile-pic" src="https://randomuser.me/api/portraits/men/75.jpg" alt="John Doe" />
+    <p>Hi! I’m John Doe, a dedicated and enthusiastic web developer with a passion for crafting efficient, scalable, and user-friendly web applications. Eager to join a dynamic team to grow professionally and contribute meaningfully.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML" /> HTML</div>
+      <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS" /> CSS</div>
+      <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript" /> JavaScript</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Personal Blog</h3>
+        <p>A fully responsive blog website built with HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>Designed and coded a personal portfolio to showcase work and skills.</p>
+      </div>
+      <div class="project">
+        <h3>ToDo App</h3>
+        <p>A task management app using vanilla JS for adding, removing, and updating tasks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="recommendations">
+    <h2>Recommendations</h2>
+    <div class="recommendations" id="recommendation-list">
+      <div class="recommendation">John is a quick learner and delivers great results. - Jane Smith</div>
+      <div class="recommendation">Working with John was a pleasure. He is dedicated and creative. - Mike Johnson</div>
+      <div class="recommendation">John's attention to detail is impressive. Highly recommend him! - Sarah Lee</div>
+    </div>
+
+    <div id="add-recommendation">
+      <h3>Add a Recommendation</h3>
+      <input type="text" id="new-rec" placeholder="Write a recommendation" style="width: 80%; padding: 5px;" />
+      <button onclick="addRecommendation()">Submit</button>
+    </div>
+  </section>
+
+  <a id="home-icon" href="#">🏠</a>
+
+  <script>
+    function addRecommendation() {
+      const newRec = document.getElementById('new-rec').value;
+      if (newRec.trim() !== '') {
+        const container = document.getElementById('recommendation-list');
+        const div = document.createElement('div');
+        div.className = 'recommendation';
+        div.textContent = newRec;
+        container.appendChild(div);
+        alert('Thank you for your recommendation!');
+        document.getElementById('new-rec').value = '';
+      } else {
+        alert('Please enter a valid recommendation.');
+      }
+    }
+  </script>
+</body>
+</html>
